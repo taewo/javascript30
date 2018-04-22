@@ -16,6 +16,7 @@
 
     <label for="base">Base Color</label>
     <input id="base" type="color" name="base" value="#ffc600">
+
   </div>
 
   <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
@@ -61,7 +62,11 @@
     const inputs = document.querySelectorAll('.controls input');
 
     function handleUpdate() {
-      console.log(this.dataset);
+      const suffix = this.dataset.sizing || ''
+
+      console.log(11, document.documentElement.style);
+
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix)
     }
 
     inputs.forEach(input => input.addEventListener('change', handleUpdate))
@@ -80,6 +85,15 @@
 
 - 태그에 data-***="###"을 지정하고 console.log(this.dataset) 을 하면 {***: ###} 형태의
 key-value 페어의 값을 확인할 수 있다.
+
+- input 태그 안에 name="***" 이러한 값이 있는데 this.name으로 값을 받을 수 있다.
+div 태그에서도 name Attribute 로 값을 받을 수 있을까 해서 해봤는데 안됬다.
+HTML name Attribute 를 사용할 수 있는 특정 태그들이 있다. button, input form 등등
+
+- document.documentElement 는 읽기 전용 속성으로 document의 root 요소인 Element를 반환한다. 예를들어 <html>요소
+var rootElement = document.documentElement;
+var firstTier = rootElement.childNodes;
+이런 방식으로 childNodes들에 접근할 수 있다.
 
 
 -->
