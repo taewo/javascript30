@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+  <div class="text" style="display:none">
+    <h3>hello world</h3>
+  </div>
+<script>
+  const divTag = document.querySelector('.text')
+  console.log('divTag', divTag);
+  console.log(1, divTag.style);
+
+  const pressed = [];
+  const answer = 'taewoo'
+
+  window.addEventListener('keyup', (e) => {
+    pressed.push(e.key)
+    console.log('111111,,,,', e.key);
+    console.log('222222,,,,', pressed);
+    if (pressed.length > 6) {
+      pressed.splice(0,1)
+    }
+    if (pressed.join('') === answer) {
+      divTag.style.display = 'block'
+    } else {
+      divTag.style.display = 'none'
+    }
+  })
+</script>
+</body>
+</html>
