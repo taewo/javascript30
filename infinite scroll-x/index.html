@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+
+  </div>
+  <script type="text/javascript">
+    const dummy = [{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'},{name: 'a'}]
+    const wrap = document.querySelectorAll('.wrap')
+    wrap[0].innerHTML = dummy.map((content, i) => {
+      return (`<div class="content">${i}</div>`)
+    }).join('')
+
+    function scrollControl(e) {
+      console.log('scrollControl');
+      if (e.clientX > wrap[0].clientWidth * (3/4)) {
+        wrap[0].scrollLeft += 20;
+      } else if (e.clientX < wrap[0].clientWidth * (1/4)) {
+        wrap[0].scrollLeft -= 20;
+      }
+    }
+    wrap[0].addEventListener('mousemove', scrollControl)
+  </script>
+</body>
+</html>
